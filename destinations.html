@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JOYLO Destinations - Browse our curated luxury travel collections across the globe, from the Himalayas to the Greek Isles.">
+  <title>JOYLO | Destinations</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/pages.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="index.html" class="logo-link">
+        <div class="logo-container">
+          <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="180" height="180" rx="45" ry="45" fill="#135f75"/>
+            <path d="M 45 145 C 50 85, 105 50, 145 75" fill="none" stroke="#ebd2a3" stroke-width="16" stroke-linecap="round"/>
+            <circle cx="145" cy="75" r="14" fill="#ebd2a3" />
+          </svg>
+          <div class="logo-text">
+            <span class="logo-brand">joylo</span>
+            <span class="logo-slogan">TRAVEL WELL</span>
+          </div>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html#destinations" class="nav-item">Destinations</a>
+        <a href="index.html#packages" class="nav-item">Packages</a>
+        <a href="index.html#planner" class="nav-item">Itinerary Planner</a>
+        <a href="index.html#features" class="nav-item">Why Joylo</a>
+        <a href="index.html#testimonials" class="nav-item">Reviews</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="index.html#contact" class="btn btn-primary btn-nav">Book Inquiry</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav-menu">
+      <a href="index.html#destinations" class="mobile-nav-item">Destinations</a>
+      <a href="index.html#packages" class="mobile-nav-item">Packages</a>
+      <a href="index.html#planner" class="mobile-nav-item">Itinerary Planner</a>
+      <a href="index.html#features" class="mobile-nav-item">Why Joylo</a>
+      <a href="index.html#testimonials" class="mobile-nav-item">Reviews</a>
+      <a href="index.html#contact" class="btn btn-primary btn-mobile">Book Inquiry</a>
+    </nav>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-container">
+      <span class="hero-badge">Global Collection</span>
+      <h1 class="page-hero-title">Every Corner of the <span class="text-gradient">World, Curated</span></h1>
+      <p class="page-hero-sub">From Himalayan glass cabins to Greek caldera suites, browse our signature destinations and begin designing the escape that moves you.</p>
+    </div>
+  </section>
+
+  <!-- Destinations Listing -->
+  <section class="listing-section">
+    <div class="container">
+      <div class="region-filter scroll-reveal">
+        <button class="filter-btn active" data-region="all">All</button>
+        <button class="filter-btn" data-region="india">India</button>
+        <button class="filter-btn" data-region="asia">Asia</button>
+        <button class="filter-btn" data-region="europe">Europe</button>
+      </div>
+
+      <div class="destinations-grid" id="listingGrid">
+        <!-- India - Himachal -->
+        <div class="dest-card scroll-reveal" data-region="india">
+          <div class="dest-image-container">
+            <img src="assets/himachal.png" alt="Himachal Pradesh, India" loading="lazy">
+            <span class="dest-badge">Mountains</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Himachal Pradesh, India</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.87</div>
+            </div>
+            <p class="dest-text">Wake in a glass cabin above pine valleys, ride the toy train to Shimla, and sip private tea tastings in mist-wrapped Himalayan hamlets.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>$2,400</strong><small>/person</small></span>
+              <a href="india.html" class="btn-text-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- India - Kerala -->
+        <div class="dest-card scroll-reveal delay-100" data-region="india">
+          <div class="dest-image-container">
+            <img src="assets/kerala.png" alt="Kerala, India" loading="lazy">
+            <span class="dest-badge">Serene</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Kerala, India</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.91</div>
+            </div>
+            <p class="dest-text">Drift the backwaters aboard a private houseboat, unwind with Ayurvedic spa rituals, and dine on coastal feasts under coconut groves.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>$2,100</strong><small>/person</small></span>
+              <a href="india.html" class="btn-text-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- India - Rajasthan -->
+        <div class="dest-card scroll-reveal delay-200" data-region="india">
+          <div class="dest-image-container">
+            <img src="assets/rajasthan.png" alt="Rajasthan, India" loading="lazy">
+            <span class="dest-badge">Heritage</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Rajasthan, India</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.94</div>
+            </div>
+            <p class="dest-text">Sleep in restored maharaja palaces, take a private sunset camel safari in the Thar desert, and tour kaleidoscopic bazaars with a royal historian.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>$3,000</strong><small>/person</small></span>
+              <a href="india.html" class="btn-text-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vietnam -->
+        <div class="dest-card scroll-reveal delay-300" data-region="asia">
+          <div class="dest-image-container">
+            <img src="assets/vietnam.png" alt="Hanoi & Ha Long Bay, Vietnam" loading="lazy">
+            <span class="dest-badge">Scenic</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Hanoi & Ha Long Bay, Vietnam</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.9</div>
+            </div>
+            <p class="dest-text">Cruise emerald waters among limestone karsts aboard a private luxury junk, and savor street-food feasts led by local Hanoi culinary masters.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>$3,600</strong><small>/person</small></span>
+              <a href="index.html#contact" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kyoto -->
+        <div class="dest-card scroll-reveal" data-region="asia">
+          <div class="dest-image-container">
+            <img src="assets/kyoto.png" alt="Kyoto, Japan" loading="lazy">
+            <span class="dest-badge">Cultured</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Kyoto, Japan</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.9</div>
+            </div>
+            <p class="dest-text">Sip private ceremony matcha, wander tranquil bamboo groves, and rest in centuries-old luxury Ryokans.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>$4,200</strong><small>/person</small></span>
+              <a href="index.html#contact" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Santorini -->
+        <div class="dest-card scroll-reveal delay-100" data-region="europe">
+          <div class="dest-image-container">
+            <img src="assets/santorini.png" alt="Santorini, Greece" loading="lazy">
+            <span class="dest-badge">Scenic</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Santorini, Greece</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.95</div>
+            </div>
+            <p class="dest-text">Unpack in cliffside infinity pool suites overlooking the caldera and embark on private catamaran sunset cruises.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>$5,800</strong><small>/person</small></span>
+              <a href="index.html#contact" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amalfi -->
+        <div class="dest-card scroll-reveal delay-200" data-region="europe">
+          <div class="dest-image-container">
+            <img src="assets/amalfi.png" alt="Amalfi Coast, Italy" loading="lazy">
+            <span class="dest-badge">Romantic</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Amalfi Coast, Italy</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.88</div>
+            </div>
+            <p class="dest-text">Cruise down coastal cliffs in a vintage Italian roadster and dine at exclusive cliffside lemon grove restaurants.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>$6,100</strong><small>/person</small></span>
+              <a href="index.html#contact" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Swiss Alps -->
+        <div class="dest-card scroll-reveal delay-300" data-region="europe">
+          <div class="dest-image-container">
+            <img src="assets/swiss_alps.png" alt="Swiss Alps, Switzerland" loading="lazy">
+            <span class="dest-badge">Adventure</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Swiss Alps, Switzerland</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.92</div>
+            </div>
+            <p class="dest-text">Ski direct-to-door at elite chalet resorts, and take a private helicopter flight surrounding the majestic Matterhorn.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>$7,500</strong><small>/person</small></span>
+              <a href="index.html#contact" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-cta scroll-reveal">
+        <a href="index.html#planner" class="btn btn-primary">Build My Custom Itinerary <i class="fa-solid fa-sparkles"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-section">
+    <div class="container footer-container">
+      <div class="footer-col brand-col">
+        <div class="logo-container">
+          <svg class="logo-icon-sm" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="180" height="180" rx="45" ry="45" fill="#135f75"/>
+            <path d="M 45 145 C 50 85, 105 50, 145 75" fill="none" stroke="#ebd2a3" stroke-width="16" stroke-linecap="round"/>
+            <circle cx="145" cy="75" r="14" fill="#ebd2a3" />
+          </svg>
+          <div class="logo-text">
+            <span class="logo-brand-sm">joylo</span>
+            <span class="logo-slogan-sm">TRAVEL WELL</span>
+          </div>
+        </div>
+        <p>Bespoke luxury curators designing premium travel experiences that inspire, relax, and reconnect.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Joylo Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Joylo Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Joylo Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="#" aria-label="Joylo Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="destinations.html">All Destinations</a></li>
+          <li><a href="india.html">India Escapes</a></li>
+          <li><a href="index.html#destinations">Santorini, Greece</a></li>
+          <li><a href="index.html#destinations">Amalfi Coast, Italy</a></li>
+          <li><a href="index.html#destinations">Swiss Alps, Switzerland</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Bespoke Offerings</h4>
+        <ul>
+          <li><a href="index.html#planner">Custom Itinerary Generator</a></li>
+          <li><a href="index.html#packages">Signature Experiences</a></li>
+          <li><a href="index.html#features">Concierge Excellence</a></li>
+          <li><a href="index.html#features">Priority Airport Fast-Track</a></li>
+          <li><a href="index.html#features">Carbon Neutral Travels</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Global Offices</h4>
+        <ul>
+          <li><a href="#">Los Angeles Studio</a></li>
+          <li><a href="#">Hanoi old quarter office</a></li>
+          <li><a href="#">Shimla hillside desk</a></li>
+          <li><a href="#">Udaipur palace concierge</a></li>
+          <li><a href="#">Zurich alpine chalet</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>&copy; 2026 JOYLO Travel Well. All rights reserved. Designed for elite travelers.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Travel Insurance Options</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

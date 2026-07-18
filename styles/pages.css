@@ -1,0 +1,300 @@
+/* ==========================================================================
+   JOYLO - SECONDARY PAGES (destinations.html, india.html)
+   ========================================================================== */
+
+/* --- Page Hero (sub-page banner) --- */
+.page-hero {
+  position: relative;
+  padding: 200px 0 120px 0;
+  margin-top: 0;
+  background-image: url('../assets/india_hero.png');
+  background-size: cover;
+  background-position: center;
+  color: var(--color-bg-white);
+}
+
+.page-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(7, 22, 28, 0.55), rgba(7, 22, 28, 0.8));
+}
+
+.page-hero-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 760px;
+}
+
+.page-hero-title {
+  color: var(--color-bg-white);
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.page-hero-title .text-gradient {
+  background: linear-gradient(135deg, var(--color-accent), #fef4e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-hero-sub {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 300;
+}
+
+/* --- Listing Section --- */
+.listing-section {
+  padding: 100px 0 120px 0;
+  background-color: var(--color-bg-light);
+}
+
+.region-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 50px;
+}
+
+.filter-btn {
+  background-color: var(--color-bg-white);
+  border: 1px solid rgba(19, 95, 117, 0.12);
+  color: var(--color-text-main);
+  padding: 10px 26px;
+  border-radius: var(--border-radius-xl);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.filter-btn.active {
+  background-color: var(--color-primary);
+  color: var(--color-bg-white);
+  border-color: var(--color-primary);
+}
+
+.dest-card.hide {
+  display: none;
+}
+
+.listing-cta {
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* --- India Page Specific --- */
+.india-intro {
+  padding: 110px 0 40px 0;
+  background-color: var(--color-bg-white);
+}
+
+.india-intro-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.india-intro-grid p {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+}
+
+.india-intro-image {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(19, 95, 117, 0.12);
+  height: 380px;
+}
+
+.india-intro-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.india-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.india-stat .num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.india-stat .label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* Trip feature blocks */
+.trip-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  background-color: var(--color-bg-white);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(19, 95, 117, 0.05);
+  margin-bottom: 40px;
+}
+
+.trip-block.reverse .trip-image {
+  order: 2;
+}
+
+.trip-image {
+  height: 420px;
+  overflow: hidden;
+}
+
+.trip-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+.trip-block:hover .trip-image img {
+  transform: scale(1.05);
+}
+
+.trip-detail {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-detail .trip-loc {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.trip-detail h3 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+.trip-detail p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+.trip-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(19, 95, 117, 0.08);
+}
+
+.trip-highlights span {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trip-highlights i {
+  color: var(--color-primary);
+}
+
+.trip-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.trip-duration {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.trip-duration strong {
+  color: var(--color-primary-dark);
+  font-family: var(--font-display);
+}
+
+/* CTA banner */
+.india-cta {
+  padding: 90px 0;
+  background-color: var(--color-bg-dark);
+  color: var(--color-bg-white);
+  text-align: center;
+}
+
+.india-cta h2 {
+  color: var(--color-bg-white);
+  font-size: 2.4rem;
+  margin-bottom: 16px;
+}
+
+.india-cta p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin: 0 auto 32px auto;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .india-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .trip-block,
+  .trip-block.reverse .trip-image {
+    grid-template-columns: 1fr;
+    order: 0;
+  }
+  .trip-image {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 160px 0 80px 0;
+  }
+  .page-hero-title {
+    font-size: 2.4rem;
+  }
+  .india-stats {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .trip-detail {
+    padding: 30px;
+  }
+}

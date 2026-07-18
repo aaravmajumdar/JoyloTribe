@@ -365,6 +365,114 @@ document.addEventListener('DOMContentLoaded', () => {
           { title: "Glacier Water Hydrotherapy", desc: "Engage in refreshing Kneipp water-therapy circuits designed to boost circulation and metabolic recovery." }
         ]
       }
+    },
+    vietnam: {
+      name: "Vietnam Coastal Discovery",
+      hotel: "Paradise Elegance Luxury Cruise",
+      costPerDay: 520,
+      vibes: {
+        adventure: [
+          { title: "Ha Long Bay Kayaking", desc: "Paddle through hidden emerald lagoons and beneath towering limestone karsts on a private guided sea kayak expedition." },
+          { title: "Cat Ba Island Jungle Trek", desc: "Hike dense national park rainforest trails to panoramic viewpoints over the bay's scattered islets." },
+          { title: "Sung Sot Cave Exploration", desc: "Climb to the spectacular 'Surprise Cave' chambers filled with dramatic stalactite formations away from the crowds." }
+        ],
+        relax: [
+          { title: "Private Deck Sunset Cruise", desc: "Unwind on the top deck of your luxury junk with a sundowner as limestone peaks glow at golden hour." },
+          { title: "Tai Chi at Dawn", desc: "Greet the misty morning with a gentle tai chi session on the sundeck led by your onboard wellness host." },
+          { title: "Spa & Bayfront Pool Lounge", desc: "Soak in the cruise spa and infinity-edge pool while drifting past surreal karst scenery." }
+        ],
+        culture: [
+          { title: "Hanoi Old Quarter Walking", desc: "Wander lantern-lit streets with a local historian, sampling pho and exploring hidden temples and clan houses." },
+          { title: "Water Puppet & Temple Tour", desc: "Enjoy a traditional Thang Long water puppet show followed by a visit to the ancient Temple of Literature." },
+          { title: "Floating Village Homestay", desc: "Meet local fishing families in a UNESCO bay floating village and learn their daily routines first-hand." }
+        ],
+        wellness: [
+          { title: "Vietnamese Herbal Bath", desc: "Rebalance with a warm therapeutic herbal soak using mountain ginger and locally sourced botanicals." },
+          { title: "Bayfront Meditation", desc: "Practice mindful breathing on a quiet private beach as the morning mist lifts over the water." },
+          { title: "Organic Vietnamese Cooking", desc: "Harvest fresh herbs and learn to craft spring rolls and fusion dishes with an onboard private chef." }
+        ]
+      }
+    },
+    himachal: {
+      name: "Himalayan Himachal retreat",
+      hotel: "The Oberoi Cecil, Shimla",
+      costPerDay: 420,
+      vibes: {
+        adventure: [
+          { title: "Rohtang Pass Private Drive", desc: "Cruise hairpin Himalayan roads in a chauffeured luxury SUV to snow-bound passes with panoramic glacier views." },
+          { title: "Solang Valley Paragliding", desc: "Soar above cedar forests and alpine meadows on a tandem glide with a certified mountain pilot." },
+          { title: "Beas River White-Water Rafting", desc: "Navigate grade-III rapids through pine gorges with expert safety guides and riverside picnics." }
+        ],
+        relax: [
+          { title: "Glass Cabin Valley View", desc: "Unwind in a floor-to-ceiling glass retreat above the clouds with private bonfire and stargazing." },
+          { title: "Himalayan Spa Soak", desc: "Ease altitude chill with warm stone massages and cedar-oil therapies at a hillside wellness sanctuary." },
+          { title: "Toy Train to Shimla", desc: "Ride the UNESCO heritage mountain railway in a private first-class carriage through tunnels and orchards." }
+        ],
+        culture: [
+          { title: "Tibetan Monastery Visit", desc: "Tour the hilltop monasteries of Dharamshala with a monk guide, learning thangka art and prayer rituals." },
+          { title: "Colonial Shimla Walk", desc: "Stroll the Viceregal Lodge and Mall Road with a heritage historian recounting Raj-era tales." },
+          { title: "Himachali Farm Feast", desc: "Dine on slow-cooked siddu and river trout at a family orchard closed to the public." }
+        ],
+        wellness: [
+          { title: "Altitude Yoga Terrace", desc: "Breathe crisp mountain air through gentle asana led by a certified Himalayan instructor." },
+          { title: "Forest Bathing in Pine Groves", desc: "Immerse senses in silent deodar forests guided by a local naturalist for deep restoration." },
+          { title: "Herbal Tisane Ritual", desc: "Learn to brew indigenous mountain herbs into healing teas with a village elder." }
+        ]
+      }
+    },
+    kerala: {
+      name: "Kerala Backwaters escape",
+      hotel: "Spice Village, Thekkady",
+      costPerDay: 380,
+      vibes: {
+        adventure: [
+          { title: "Periyar Jungle Boat Safari", desc: "Glide across the lake spotting wild elephants and birds with a private naturalist guide." },
+          { title: "Munnar Tea-Trek", desc: "Hike emerald plantation hills at dawn, plucking leaves alongside estate workers." },
+          { title: "Backwater Kayak Explorer", desc: "Paddle narrow village canals past coir weavers and rice paddies in a private sea kayak." }
+        ],
+        relax: [
+          { title: "Private Houseboat Cruise", desc: "Drift the Vembanad backwaters aboard a crewed luxury houseboat with sunset dining on deck." },
+          { title: "Ayurvedic Rejuvenation", desc: "Reset with a personalized Panchakarma program at a lakeside wellness retreat." },
+          { title: "Coconut Grove Hammock Day", desc: "Lounge under palms with fresh tender coconut and a private butler on a quiet beach." }
+        ],
+        culture: [
+          { title: "Kathakali Performance Night", desc: "Witness the elaborate classical dance-drama up close with a backstage artist introduction." },
+          { title: "Spice Plantation Tour", desc: "Walk cardamom and pepper trails with a planter, ending in a farm-to-table lunch." },
+          { title: "Fort Kochi Heritage Walk", desc: "Explore Chinese fishing nets and colonial lanes with a local historian and art curator." }
+        ],
+        wellness: [
+          { title: "Yoga by the Lake", desc: "Practice sunrise flow on a floating platform as mist lifts over the water." },
+          { title: "Ayurvedic Cooking Class", desc: "Learn healing vegetarian recipes using local spices with a retreat chef." },
+          { title: "Meditative Village Canal Row", desc: "Glide silently in a country boat through lily-filled canals for mindful stillness." }
+        ]
+      }
+    },
+    rajasthan: {
+      name: "Royal Rajasthan journey",
+      hotel: "Taj Lake Palace, Udaipur",
+      costPerDay: 560,
+      vibes: {
+        adventure: [
+          { title: "Thar Desert Camel Safari", desc: "Ride private dromedaries to a sunset dune camp with folk music and starlit dinner." },
+          { title: "Mehrangarh Fort Rappel", desc: "Descend the ramparts of Jodhpur's blue city fortress on a guided vertical adventure." },
+          { title: "Lake Pichola Speedboat", desc: "Cruise the royal lake past the Lake Palace in a private speedboat at golden hour." }
+        ],
+        relax: [
+          { title: "Palace Suite Indulgence", desc: "Reside in a restored maharaja suite with private courtyard, jacuzzi, and butler service." },
+          { title: "Rooftop Pool & Lounge", desc: "Float above the pink city with a cooling lassi and live traditional instrumentation." },
+          { title: "Royal Spa Ritual", desc: "Rejuvenate with ubtan wraps and rose-oil massage in a heritage spa chamber." }
+        ],
+        culture: [
+          { title: "City Palace Private Tour", desc: "Explore Udaipur's royal apartments with a historian, including closed museum wings." },
+          { title: "Block-Print & Bazaar Walk", desc: "Shop kaleidoscopic textiles with an artisan guide through Jaipur's old city." },
+          { title: "Royal Thali Feast", desc: "Dine on a 30-dish silver-platter thali inside a former prince's dining hall." }
+        ],
+        wellness: [
+          { title: "Sunrise Lakeside Meditation", desc: "Center the mind on a ghat terrace as birds and boats stir on the water." },
+          { title: "Yoga in the Courtyard", desc: "Flow through asana in a marble palace courtyard scented with jasmine." },
+          { title: "Heritage Hammam Ritual", desc: "Purify with a traditional royal bath using marble heat and herbal steam." }
+        ]
+      }
     }
   };
 
@@ -480,6 +588,31 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       return item;
     }
+  }
+
+  /* ----------------------------------------------------
+      8. Region Filter (destinations listing page)
+      ---------------------------------------------------- */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const listingCards = document.querySelectorAll('#listingGrid .dest-card');
+
+  if (filterBtns.length > 0 && listingCards.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const region = btn.getAttribute('data-region');
+        listingCards.forEach(card => {
+          const cardRegion = card.getAttribute('data-region');
+          if (region === 'all' || cardRegion === region) {
+            card.classList.remove('hide');
+          } else {
+            card.classList.add('hide');
+          }
+        });
+      });
+    });
   }
 
 });
