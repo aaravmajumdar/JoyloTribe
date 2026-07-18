@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JOYLO - Luxury & Curated Travel Journeys. Travel well with our bespoke itineraries, premium accommodations, and 24/7 personal concierge support.">
+  <title>JOYLO | Travel Well</title>
+  
+  <!-- Preconnect and Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons for aesthetics -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="#" class="logo-link">
+        <div class="logo-container">
+          <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="180" height="180" rx="45" ry="45" fill="#135f75"/>
+            <path d="M 45 145 C 50 85, 105 50, 145 75" fill="none" stroke="#ebd2a3" stroke-width="16" stroke-linecap="round"/>
+            <circle cx="145" cy="75" r="14" fill="#ebd2a3" />
+          </svg>
+          <div class="logo-text">
+            <span class="logo-brand">joylo</span>
+            <span class="logo-slogan">TRAVEL WELL</span>
+          </div>
+        </div>
+      </a>
+      
+      <nav class="nav-menu">
+        <a href="#destinations" class="nav-item">Destinations</a>
+        <a href="#packages" class="nav-item">Packages</a>
+        <a href="#planner" class="nav-item">Itinerary Planner</a>
+        <a href="#features" class="nav-item">Why Joylo</a>
+        <a href="#testimonials" class="nav-item">Reviews</a>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="#contact" class="btn btn-primary btn-nav">Book Inquiry</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav-menu">
+      <a href="#destinations" class="mobile-nav-item">Destinations</a>
+      <a href="#packages" class="mobile-nav-item">Packages</a>
+      <a href="#planner" class="mobile-nav-item">Itinerary Planner</a>
+      <a href="#features" class="mobile-nav-item">Why Joylo</a>
+      <a href="#testimonials" class="mobile-nav-item">Reviews</a>
+      <a href="#contact" class="btn btn-primary btn-mobile">Book Inquiry</a>
+    </nav>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-bg-overlay"></div>
+    <div class="container hero-container">
+      <div class="hero-content scroll-reveal">
+        <span class="hero-badge">Curated Bespoke Journeys</span>
+        <h1 class="hero-title">Experience the<br><span class="text-gradient">Extraordinary</span></h1>
+        <p class="hero-tagline">Stop traveling to see. Start traveling to feel. Custom luxury experiences crafted around the story you want to live.</p>
+        <div class="hero-cta-group">
+          <a href="#planner" class="btn btn-primary">Start Planning</a>
+          <a href="#destinations" class="btn btn-outline"><i class="fa-regular fa-compass"></i> Explore Destinations</a>
+        </div>
+      </div>
+      
+      <!-- Booking Widget Search Bar -->
+      <div class="search-widget scroll-reveal delay-200">
+        <form class="search-form" id="heroSearchForm">
+          <div class="search-group">
+            <label for="searchDest"><i class="fa-solid fa-map-pin"></i> Where to?</label>
+            <select id="searchDest" required>
+              <option value="" disabled selected>Select destination</option>
+              <option value="kyoto">Kyoto, Japan</option>
+              <option value="santorini">Santorini, Greece</option>
+              <option value="amalfi">Amalfi Coast, Italy</option>
+              <option value="alps">Swiss Alps, Switzerland</option>
+            </select>
+          </div>
+          
+          <div class="search-group">
+            <label for="searchDate"><i class="fa-regular fa-calendar-days"></i> When?</label>
+            <input type="date" id="searchDate" required>
+          </div>
+          
+          <div class="search-group">
+            <label for="searchGuests"><i class="fa-solid fa-users"></i> Guests</label>
+            <select id="searchGuests">
+              <option value="1">1 Traveler</option>
+              <option value="2" selected>2 Travelers</option>
+              <option value="4">4 Travelers</option>
+              <option value="5+">5+ (Group)</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="btn btn-search" aria-label="Search trips">
+            <i class="fa-solid fa-magnifying-glass"></i> <span>Search</span>
+          </button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Scroll Down indicator -->
+    <a href="#destinations" class="scroll-indicator" aria-label="Scroll Down">
+      <span>Scroll Down</span>
+      <div class="mouse-icon">
+        <div class="wheel"></div>
+      </div>
+    </a>
+  </section>
+
+  <!-- Popular Destinations Section -->
+  <section class="destinations-section" id="destinations">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="subtitle">Trending Paradises</span>
+        <h2 class="section-title">The World's Most <span class="text-gradient">Inspiring Escapes</span></h2>
+        <p class="section-desc">Handpicked destinations featuring unparalleled luxury, cultural authenticity, and private residences tailored for Joylo travelers.</p>
+      </div>
+      
+      <div class="destinations-grid">
+        <!-- Card 1: Kyoto -->
+        <div class="dest-card scroll-reveal">
+          <div class="dest-image-container">
+            <img src="assets/kyoto.png" alt="Kyoto, Japan" loading="lazy">
+            <span class="dest-badge">Cultured</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Kyoto, Japan</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.9</div>
+            </div>
+            <p class="dest-text">Sip private ceremony matcha, wander tranquil bamboo groves, and rest in centuries-old luxury Ryokans.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>$4,200</strong><small>/person</small></span>
+              <a href="#contact" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Santorini -->
+        <div class="dest-card scroll-reveal delay-100">
+          <div class="dest-image-container">
+            <img src="assets/santorini.png" alt="Santorini, Greece" loading="lazy">
+            <span class="dest-badge">Scenic</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Santorini, Greece</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.95</div>
+            </div>
+            <p class="dest-text">Unpack in cliffside infinity pool suites overlooking the caldera and embark on private catamaran sunset cruises.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>$5,800</strong><small>/person</small></span>
+              <a href="#contact" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Amalfi -->
+        <div class="dest-card scroll-reveal delay-200">
+          <div class="dest-image-container">
+            <img src="assets/amalfi.png" alt="Amalfi Coast, Italy" loading="lazy">
+            <span class="dest-badge">Romantic</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Amalfi Coast, Italy</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.88</div>
+            </div>
+            <p class="dest-text">Cruise down coastal cliffs in a vintage Italian roadster and dine at exclusive cliffside lemon grove restaurants.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>$6,100</strong><small>/person</small></span>
+              <a href="#contact" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Swiss Alps -->
+        <div class="dest-card scroll-reveal delay-300">
+          <div class="dest-image-container">
+            <img src="assets/swiss_alps.png" alt="Zermatt, Switzerland" loading="lazy">
+            <span class="dest-badge">Adventure</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Swiss Alps, Switzerland</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.92</div>
+            </div>
+            <p class="dest-text">Ski direct-to-door at elite chalet resorts, and take a private helicopter flight surrounding the majestic Matterhorn.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>$7,500</strong><small>/person</small></span>
+              <a href="#contact" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition Section -->
+  <section class="features-section" id="features">
+    <div class="features-bg-elements">
+      <div class="glow-orb orb-1"></div>
+      <div class="glow-orb orb-2"></div>
+    </div>
+    <div class="container">
+      <div class="features-layout">
+        <div class="features-text scroll-reveal">
+          <span class="subtitle">The Joylo Signature</span>
+          <h2 class="section-title">Redefining What It Means to <span class="text-gradient">Travel Well</span></h2>
+          <p>We believe travel should be effortless, deeply personal, and highly restorative. That's why every Joylo trip includes our signature service standards designed to pamper and inspire.</p>
+          
+          <ul class="features-list">
+            <li>
+              <div class="feature-item-icon"><i class="fa-solid fa-check"></i></div>
+              <div class="feature-item-content">
+                <h4>Carbon-Offset Journeys</h4>
+                <p>All bookings support carbon offset verified clean energy projects globally.</p>
+              </div>
+            </li>
+            <li>
+              <div class="feature-item-icon"><i class="fa-solid fa-check"></i></div>
+              <div class="feature-item-content">
+                <h4>Private VIP Fast-Track</h4>
+                <p>Skip airport customs queues globally with complimentary priority airport escorts.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="features-grid">
+          <!-- Card 1 -->
+          <div class="feature-card scroll-reveal">
+            <div class="icon-box">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <h3>Curated Journeys</h3>
+            <p>No cookie-cutter templates. Every itinerary is drawn from scratch by local design curators who know the secrets of their homelands.</p>
+          </div>
+          
+          <!-- Card 2 -->
+          <div class="feature-card scroll-reveal delay-100">
+            <div class="icon-box">
+              <i class="fa-solid fa-bell-concierge"></i>
+            </div>
+            <h3>24/7 Concierge</h3>
+            <p>Your WhatsApp connects you directly to a dedicated local helper who handles dinner reservations, schedule modifications, and emergencies instantly.</p>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="feature-card scroll-reveal delay-200">
+            <div class="icon-box">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+            <h3>All-Inclusive Luxury</h3>
+            <p>Private transfers, premium travel insurance, boutique accommodations, and unique local workshops are woven in seamlessly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Travel Planner Section -->
+  <section class="planner-section" id="planner">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="subtitle">AI Itinerary Planner</span>
+        <h2 class="section-title">Design Your Custom <span class="text-gradient">Dream Escape</span></h2>
+        <p class="section-desc">Select your travel vibe, duration, and budget. Our smart planner will dynamically build an exclusive curated itinerary preview instantly.</p>
+      </div>
+      
+      <div class="planner-wrapper glass-panel scroll-reveal">
+        <!-- Left Column: Inputs -->
+        <div class="planner-inputs">
+          <h3 class="planner-sub-title">1. Your Preferences</h3>
+          
+          <div class="planner-field">
+            <label>Travel Vibe</label>
+            <div class="vibe-selectors">
+              <button class="vibe-btn active" data-vibe="adventure">
+                <i class="fa-solid fa-mountain-sun"></i> Adventure
+              </button>
+              <button class="vibe-btn" data-vibe="relax">
+                <i class="fa-solid fa-spa"></i> Relaxation
+              </button>
+              <button class="vibe-btn" data-vibe="culture">
+                <i class="fa-solid fa-landmark"></i> Cultural
+              </button>
+              <button class="vibe-btn" data-vibe="wellness">
+                <i class="fa-solid fa-leaf"></i> Wellness
+              </button>
+            </div>
+          </div>
+          
+          <div class="planner-flex-row">
+            <div class="planner-field">
+              <label for="planDuration">Duration</label>
+              <select id="planDuration" class="form-control">
+                <option value="3">3 Days (Weekend Escape)</option>
+                <option value="7" selected>7 Days (Standard Luxury)</option>
+                <option value="14">14 Days (Grand Expedition)</option>
+              </select>
+            </div>
+            
+            <div class="planner-field">
+              <label for="planDestination">Region</label>
+              <select id="planDestination" class="form-control">
+                <option value="kyoto">Kyoto, Japan</option>
+                <option value="santorini" selected>Santorini, Greece</option>
+                <option value="amalfi">Amalfi Coast, Italy</option>
+                <option value="alps">Swiss Alps</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="planner-field">
+            <label>Luxury Tier</label>
+            <div class="luxury-selectors">
+              <label class="lux-option">
+                <input type="radio" name="luxTier" value="boutique" checked>
+                <div class="lux-box">
+                  <span class="lux-title">Premium Boutique</span>
+                  <span class="lux-desc">5-star boutique hotels, semi-private tours</span>
+                </div>
+              </label>
+              <label class="lux-option">
+                <input type="radio" name="luxTier" value="ultra">
+                <div class="lux-box">
+                  <span class="lux-title">Ultra Luxe</span>
+                  <span class="lux-desc">Private villas, helicopters, personal hosts</span>
+                </div>
+              </label>
+            </div>
+          </div>
+          
+          <button id="generateItinerary" class="btn btn-primary btn-block">
+            <span>Generate Itinerary Preview</span>
+            <i class="fa-solid fa-sparkles"></i>
+          </button>
+        </div>
+        
+        <!-- Right Column: Live Output -->
+        <div class="planner-output" id="plannerOutput">
+          <div class="output-placeholder">
+            <i class="fa-solid fa-compass-drafting animate-bounce"></i>
+            <h4>Your Bespoke Itinerary Awaits</h4>
+            <p>Customize your selections on the left and tap 'Generate Itinerary Preview' to view a hand-crafted schedule, curated stay locations, and pricing estimate.</p>
+          </div>
+          
+          <!-- This will be populated by JS -->
+          <div class="output-content hidden" id="itineraryContent">
+            <!-- Header -->
+            <div class="itinerary-header">
+              <div class="itinerary-badge" id="itineraryBadge">ADVENTURE</div>
+              <h4 id="itineraryTitle">7-Day Greek Odyssey</h4>
+              <p class="itinerary-meta"><span id="itineraryHotel"><i class="fa-solid fa-hotel"></i> Mystique Resort</span> | <span id="itineraryPax"><i class="fa-solid fa-user-shield"></i> Personal Concierge Assigned</span></p>
+            </div>
+            
+            <!-- Timeline items -->
+            <div class="itinerary-timeline" id="itineraryTimeline">
+              <!-- Dynamically populated -->
+            </div>
+            
+            <!-- Summary Info -->
+            <div class="itinerary-summary">
+              <div class="summary-cost">
+                <span>Estimated Investment:</span>
+                <span class="price-val" id="itineraryCost">$8,400</span>
+              </div>
+              <a href="#contact" class="btn btn-outline btn-sm" id="bookItineraryBtn">Request Booking Inquiry</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Packages / Experiences Section -->
+  <section class="packages-section" id="packages">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="subtitle">Bespoke Journeys</span>
+        <h2 class="section-title">Signature <span class="text-gradient">Travel Collections</span></h2>
+        <p class="section-desc">Fully immersive luxury packages featuring private transport, accommodations, and curated activities designed around local themes.</p>
+      </div>
+      
+      <div class="packages-grid">
+        <!-- Package 1 -->
+        <div class="package-card scroll-reveal">
+          <div class="pkg-image-wrapper">
+            <img src="assets/kyoto.png" alt="Zen Gardens Kyoto" loading="lazy">
+            <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 8 Days</div>
+          </div>
+          <div class="pkg-body">
+            <span class="pkg-category">Cultural Discovery</span>
+            <h3>Zen Gardens & Sacred Pagodas</h3>
+            <p>Discover the spiritual heart of Japan. Includes a private zen tea master ceremony, luxury ryokan lodge, geisha-guided historic tours, and bullet-train access.</p>
+            <div class="pkg-perks">
+              <span><i class="fa-solid fa-check"></i> 5★ Ryokan</span>
+              <span><i class="fa-solid fa-check"></i> Private Guide</span>
+              <span><i class="fa-solid fa-check"></i> Tea Master</span>
+            </div>
+            <div class="pkg-footer">
+              <div class="pkg-price">
+                <span>Total Package:</span>
+                <strong>$4,500</strong> <small>/person</small>
+              </div>
+              <a href="#contact" class="btn btn-outline btn-sm">Details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 2 -->
+        <div class="package-card scroll-reveal delay-100">
+          <div class="pkg-image-wrapper">
+            <img src="assets/santorini.png" alt="Aegean Horizon Santorini" loading="lazy">
+            <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 6 Days</div>
+          </div>
+          <div class="pkg-body">
+            <span class="pkg-category">Romantic Escape</span>
+            <h3>Aegean Horizon Caldera Sailing</h3>
+            <p>Relax in ultimate cliffside boutique hotels. Includes sunset yacht sails, private caldera wine tastings, personal volcanic hiking guides, and fine dining bookings.</p>
+            <div class="pkg-perks">
+              <span><i class="fa-solid fa-check"></i> Infinity Pool Villa</span>
+              <span><i class="fa-solid fa-check"></i> Private Yacht</span>
+              <span><i class="fa-solid fa-check"></i> Sommelier</span>
+            </div>
+            <div class="pkg-footer">
+              <div class="pkg-price">
+                <span>Total Package:</span>
+                <strong>$5,900</strong> <small>/person</small>
+              </div>
+              <a href="#contact" class="btn btn-outline btn-sm">Details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="package-card scroll-reveal delay-200">
+          <div class="pkg-image-wrapper">
+            <img src="assets/swiss_alps.png" alt="Swiss Peak Luxury" loading="lazy">
+            <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 9 Days</div>
+          </div>
+          <div class="pkg-body">
+            <span class="pkg-category">High Adventure</span>
+            <h3>Swiss Peak Helicopter & Skiing</h3>
+            <p>Soar high above snow-covered valleys. Experience private ski passes, helicopter glacier fly-overs, mountain hot springs, and luxury lodge fireplace chalets.</p>
+            <div class="pkg-perks">
+              <span><i class="fa-solid fa-check"></i> Ski-in Chalet</span>
+              <span><i class="fa-solid fa-check"></i> Heli Tour</span>
+              <span><i class="fa-solid fa-check"></i> Thermal Spas</span>
+            </div>
+            <div class="pkg-footer">
+              <div class="pkg-price">
+                <span>Total Package:</span>
+                <strong>$8,200</strong> <small>/person</small>
+              </div>
+              <a href="#contact" class="btn btn-outline btn-sm">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header scroll-reveal">
+        <span class="subtitle">Guest Journals</span>
+        <h2 class="section-title">What Our Travelers <span class="text-gradient">Say About Us</span></h2>
+        <p class="section-desc">True travel diaries from discerning guests who explored the globe under the bespoke care of Joylo curators.</p>
+      </div>
+      
+      <div class="testimonials-slider-container scroll-reveal">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <!-- Slide 1 -->
+          <div class="testimonial-slide">
+            <div class="test-quote">"Our honeymoon with Joylo was perfect. The concierge booked us front-row tables at a fully booked cliffside restaurant in Positano within 15 minutes of us asking. Absolutely stellar!"</div>
+            <div class="test-user">
+              <div class="test-avatar">
+                <i class="fa-solid fa-circle-user"></i>
+              </div>
+              <div class="test-user-info">
+                <strong>Eleanor & David Vance</strong>
+                <span>Amalfi Coast Journey</span>
+              </div>
+            </div>
+            <div class="test-rating-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+          
+          <!-- Slide 2 -->
+          <div class="testimonial-slide">
+            <div class="test-quote">"Kyoto was magic. The local tour curator arranged a private tea session at a Buddhist temple closed to the public. It was the most peaceful experience of my entire life. Highly recommend."</div>
+            <div class="test-user">
+              <div class="test-avatar">
+                <i class="fa-solid fa-circle-user"></i>
+              </div>
+              <div class="test-user-info">
+                <strong>Dr. Hiroshi Tanaka</strong>
+                <span>Kyoto Sanctuary Journey</span>
+              </div>
+            </div>
+            <div class="test-rating-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="testimonial-slide">
+            <div class="test-quote">"We didn't have to lift a finger in Switzerland. When a train got delayed, our concierge re-booked private towncars immediately and sent custom vouchers to our phones. Zero stress!"</div>
+            <div class="test-user">
+              <div class="test-avatar">
+                <i class="fa-solid fa-circle-user"></i>
+              </div>
+              <div class="test-user-info">
+                <strong>Clarissa & Mark Thorne</strong>
+                <span>Swiss Alpine Adventure</span>
+              </div>
+            </div>
+            <div class="test-rating-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slider Controls -->
+        <div class="slider-controls">
+          <button class="slider-btn prev-btn" id="prevBtn" aria-label="Previous review"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="slider-dots" id="sliderDots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+          </div>
+          <button class="slider-btn next-btn" id="nextBtn" aria-label="Next review"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Contact & Newsletter Section -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Form Panel -->
+        <div class="contact-form-panel glass-panel scroll-reveal">
+          <h3>Begin Your Journey</h3>
+          <p>Share your vision and our travel curators will draft a personalized proposal within 24 hours.</p>
+          
+          <form class="contact-form" id="bookingInquiryForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Full Name</label>
+                <input type="text" id="contactName" placeholder="John Doe" required class="form-input">
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Email Address</label>
+                <input type="email" id="contactEmail" placeholder="john@example.com" required class="form-input">
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactDestination">Preferred Retreat</label>
+                <select id="contactDestination" class="form-input">
+                  <option value="kyoto">Kyoto, Japan</option>
+                  <option value="santorini">Santorini, Greece</option>
+                  <option value="amalfi">Amalfi Coast, Italy</option>
+                  <option value="alps">Swiss Alps, Switzerland</option>
+                  <option value="other">Other Bespoke Custom Retreat</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contactDuration">Estimated Stay</label>
+                <select id="contactDuration" class="form-input">
+                  <option value="weekend">3 - 5 Days</option>
+                  <option value="week" selected>6 - 9 Days</option>
+                  <option value="fortnight">10 - 14 Days</option>
+                  <option value="long">15+ Days</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="contactMessage">Describe Your Dream Getaway</label>
+              <textarea id="contactMessage" rows="4" placeholder="Mention any preferred excursions, dietary parameters, or special celebration details..." class="form-input"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Submit Inquiry <i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+        
+        <!-- Info Panel -->
+        <div class="contact-info-panel scroll-reveal delay-200">
+          <div class="contact-brand">
+            <div class="logo-container">
+              <svg class="logo-icon-lg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="10" width="180" height="180" rx="45" ry="45" fill="#135f75"/>
+                <path d="M 45 145 C 50 85, 105 50, 145 75" fill="none" stroke="#ebd2a3" stroke-width="16" stroke-linecap="round"/>
+                <circle cx="145" cy="75" r="14" fill="#ebd2a3" />
+              </svg>
+              <div class="logo-text">
+                <span class="logo-brand-lg">joylo</span>
+                <span class="logo-slogan-lg">TRAVEL WELL</span>
+              </div>
+            </div>
+          </div>
+          
+          <p class="brand-pitch">We believe that a life well-lived is a life well-traveled. Reach out to our design concierge team to unlock custom itineraries that enrich the soul.</p>
+          
+          <div class="info-blocks">
+            <div class="info-block">
+              <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="info-text">
+                <span>Email Us Directly</span>
+                <a href="mailto:concierge@joylo.com">concierge@joylo.com</a>
+              </div>
+            </div>
+            <div class="info-block">
+              <div class="info-icon"><i class="fa-solid fa-phone-volume"></i></div>
+              <div class="info-text">
+                <span>Call Private Line</span>
+                <a href="tel:+18005559560">+1 (800) 555-JOYLO</a>
+              </div>
+            </div>
+            <div class="info-block">
+              <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="info-text">
+                <span>Design Studios</span>
+                <p>742 Beverly Blvd, Los Angeles, CA 90210</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Newsletter Panel -->
+          <div class="newsletter-box glass-panel">
+            <h4>Bespoke Travel Dispatch</h4>
+            <p>Receive monthly updates featuring invite-only retreats, custom private itineraries, and travel style guides.</p>
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="email" placeholder="Your luxury inbox email..." required class="form-input" id="newsletterEmail">
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="container footer-container">
+      <div class="footer-col brand-col">
+        <div class="logo-container">
+          <svg class="logo-icon-sm" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="180" height="180" rx="45" ry="45" fill="#135f75"/>
+            <path d="M 45 145 C 50 85, 105 50, 145 75" fill="none" stroke="#ebd2a3" stroke-width="16" stroke-linecap="round"/>
+            <circle cx="145" cy="75" r="14" fill="#ebd2a3" />
+          </svg>
+          <div class="logo-text">
+            <span class="logo-brand-sm">joylo</span>
+            <span class="logo-slogan-sm">TRAVEL WELL</span>
+          </div>
+        </div>
+        <p>Bespoke luxury curators designing premium travel experiences that inspire, relax, and reconnect.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Joylo Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Joylo Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Joylo Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="#" aria-label="Joylo Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="#destinations">Kyoto, Japan</a></li>
+          <li><a href="#destinations">Santorini, Greece</a></li>
+          <li><a href="#destinations">Amalfi Coast, Italy</a></li>
+          <li><a href="#destinations">Swiss Alps, Switzerland</a></li>
+          <li><a href="#destinations">Explore All Retreits</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Bespoke Offerings</h4>
+        <ul>
+          <li><a href="#planner">Custom Itinerary Generator</a></li>
+          <li><a href="#packages">Signature Experiences</a></li>
+          <li><a href="#features">Concierge Excellence</a></li>
+          <li><a href="#features">Priority Airport Fast-Track</a></li>
+          <li><a href="#features">Carbon Neutral Travels</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Global Offices</h4>
+        <ul>
+          <li><a href="#">Los Angeles Studio</a></li>
+          <li><a href="#">Kyoto concierge office</a></li>
+          <li><a href="#">Santorini yacht port</a></li>
+          <li><a href="#">Roma traveler lounge</a></li>
+          <li><a href="#">Zurich alpine chalet</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>&copy; 2026 JOYLO Travel Well. All rights reserved. Designed for elite travelers.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Travel Insurance Options</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Custom JS -->
+  <script src="js/app.js"></script>
+</body>
+</html>
