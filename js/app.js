@@ -146,6 +146,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Request a Quote form (service pages)
+  const quoteForm = document.getElementById('quoteForm');
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = (document.getElementById('qName') || {}).value || 'there';
+      const service = (document.getElementById('qService') || {}).value || 'your trip';
+      showToast(`Thank you, ${name}! Our curator for ${service} will reach out within 24 hours.`, 'success');
+      quoteForm.reset();
+    });
+  }
+
   /* ----------------------------------------------------
      5. Testimonials Slider Carousel
      ---------------------------------------------------- */
@@ -500,13 +512,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const destInfo = plannerData[region];
         const vibeInfo = destInfo.vibes[selectedVibe];
         
-        // Calculate dynamic cost estimate
-        let baseCost = destInfo.costPerDay * duration;
+        // Calculate dynamic cost estimate (stored internally in USD, displayed in INR)
+        const USD_TO_INR = 83;
+        let baseCostUSD = destInfo.costPerDay * duration;
         if (luxTier === 'ultra') {
-          baseCost = baseCost * 1.8;
+          baseCostUSD = baseCostUSD * 1.8;
         }
-        // Round to nearest hundred
-        const finalCost = Math.round(baseCost / 100) * 100;
+        const finalCostINR = Math.round((baseCostUSD * USD_TO_INR) / 100) * 100;
+        const inr = `₹${finalCostINR.toLocaleString('en-IN')}`;
         
         // Restore standard output template container
         plannerOutput.innerHTML = '';
@@ -532,7 +545,7 @@ document.addEventListener('DOMContentLoaded', () => {
           document.getElementById('itineraryPax').innerHTML = `<i class="fa-solid fa-bell-concierge"></i> Standard Concierge Included`;
         }
         
-        document.getElementById('itineraryCost').textContent = `$${finalCost.toLocaleString()}`;
+        document.getElementById('itineraryCost').textContent = inr;
         
         // Build timeline HTML based on duration
         const timelineEl = document.getElementById('itineraryTimeline');
@@ -569,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const contactMsg = document.getElementById('contactMessage');
             if (contactDest) contactDest.value = region;
             if (contactMsg) {
-              contactMsg.value = `I would like to make a booking inquiry for the ${duration}-Day Bespoke ${destInfo.name.charAt(0).toUpperCase() + destInfo.name.slice(1)} (${selectedVibe} theme, ${luxTier === 'ultra' ? 'Ultra Luxe' : 'Premium Boutique'} tier, estimated $${finalCost.toLocaleString()}).`;
+              contactMsg.value = `I would like to make a booking inquiry for the ${duration}-Day Bespoke ${destInfo.name.charAt(0).toUpperCase() + destInfo.name.slice(1)} (${selectedVibe} theme, ${luxTier === 'ultra' ? 'Ultra Luxe' : 'Premium Boutique'} tier, estimated ${inr}).`;
             }
           });
         }
