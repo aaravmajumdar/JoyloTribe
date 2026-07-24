@@ -22,30 +22,26 @@
   <!-- Header Section -->
   <header class="main-header">
     <div class="container header-container">
-      <a href="#" class="logo-link">
-        <div class="logo-container">
-          <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="10" width="180" height="180" rx="45" ry="45" fill="#135f75"/>
-            <path d="M 45 145 C 50 85, 105 50, 145 75" fill="none" stroke="#ebd2a3" stroke-width="16" stroke-linecap="round"/>
-            <circle cx="145" cy="75" r="14" fill="#ebd2a3" />
-          </svg>
-          <div class="logo-text">
-            <span class="logo-brand">joylo</span>
-            <span class="logo-slogan">TRAVEL WELL</span>
-          </div>
-        </div>
-      </a>
-      
+      <a href="index.html" class="logo-link"><div class="logo-container"><img src="assets/logo.png" alt="Joylo Tribe" class="logo-img"></div></a>
+
       <nav class="nav-menu">
-        <a href="index.html" class="nav-item">Home</a>
+        <a href="index.html" class="nav-item active">Home</a>
         <a href="about.html" class="nav-item">About Us</a>
         <a href="destinations.html" class="nav-item">Destinations</a>
         <a href="group-trips.html" class="nav-item">Group Trips</a>
-        <a href="corporate-travel.html" class="nav-item">Corporate Travel</a>
-        <a href="#packages" class="nav-item">Packages</a>
-        <a href="#planner" class="nav-item">Planner</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-item nav-dropdown-toggle">Services <i class="fa-solid fa-chevron-down"></i></a>
+          <div class="nav-dropdown-menu">
+            <a href="corporate-travel.html" class="nav-dropdown-item">Corporate Travel</a>
+            <a href="conferences-events.html" class="nav-dropdown-item">Conferences & Events</a>
+            <a href="visa-assistance.html" class="nav-dropdown-item">Visa Assistance</a>
+            <a href="flight-booking.html" class="nav-dropdown-item">Flight Booking</a>
+            <a href="hotel-booking.html" class="nav-dropdown-item">Hotel Booking</a>
+          </div>
+        </div>
+        <a href="contact.html" class="nav-item">Contact</a>
       </nav>
-      
+
       <div class="header-actions">
         <a href="contact.html" class="btn btn-primary btn-nav">Request a Quote</a>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
@@ -60,7 +56,7 @@
   <!-- Mobile Overlay Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <nav class="mobile-nav-menu">
-      <a href="index.html" class="mobile-nav-item">Home</a>
+      <a href="index.html" class="mobile-nav-item active">Home</a>
       <a href="about.html" class="mobile-nav-item">About Us</a>
       <a href="destinations.html" class="mobile-nav-item">Destinations</a>
       <a href="group-trips.html" class="mobile-nav-item">Group Trips</a>
@@ -69,6 +65,7 @@
       <a href="visa-assistance.html" class="mobile-nav-item">Visa Assistance</a>
       <a href="flight-booking.html" class="mobile-nav-item">Flight Booking</a>
       <a href="hotel-booking.html" class="mobile-nav-item">Hotel Booking</a>
+      <a href="contact.html" class="mobile-nav-item">Contact Us</a>
       <a href="contact.html" class="btn btn-primary btn-mobile">Request a Quote</a>
     </nav>
   </div>
@@ -82,47 +79,25 @@
         <h1 class="hero-title">Experience the<br><span class="text-gradient">Extraordinary</span></h1>
         <p class="hero-tagline">Stop traveling to see. Start traveling to feel. Custom luxury experiences crafted around the story you want to live.</p>
         <div class="hero-cta-group">
-          <a href="#planner" class="btn btn-primary">Start Planning</a>
+          <a href="#destinations" class="btn btn-primary">Start Planning</a>
           <a href="#destinations" class="btn btn-outline"><i class="fa-regular fa-compass"></i> Explore Destinations</a>
         </div>
       </div>
       
-      <!-- Booking Widget Search Bar -->
-      <div class="search-widget scroll-reveal delay-200">
-        <form class="search-form" id="heroSearchForm">
-          <div class="search-group">
-            <label for="searchDest"><i class="fa-solid fa-map-pin"></i> Where to?</label>
-            <select id="searchDest" required>
-              <option value="" disabled selected>Select destination</option>
-              <option value="kyoto">Kyoto, Japan</option>
-              <option value="santorini">Santorini, Greece</option>
-              <option value="amalfi">Amalfi Coast, Italy</option>
-              <option value="alps">Swiss Alps, Switzerland</option>
-              <option value="vietnam">Hanoi & Ha Long Bay, Vietnam</option>
-              <option value="himachal">Himachal Pradesh, India</option>
-              <option value="kerala">Kerala, India</option>
-              <option value="rajasthan">Rajasthan, India</option>
-            </select>
+      <!-- Single Destination Search Bar -->
+      <div class="search-widget single-search-widget scroll-reveal delay-200">
+        <form class="single-search-form" id="heroSearchForm" onsubmit="return false;">
+          <div class="search-input-container">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="destinationSearchInput" placeholder="Search destinations... (e.g. Spiti, Kashmir, Kyoto)" autocomplete="off">
+            <button type="button" class="btn-search-clear" id="searchClearBtn" style="display: none;" aria-label="Clear search">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
           </div>
-          
-          <div class="search-group">
-            <label for="searchDate"><i class="fa-regular fa-calendar-days"></i> When?</label>
-            <input type="date" id="searchDate" required>
-          </div>
-          
-          <div class="search-group">
-            <label for="searchGuests"><i class="fa-solid fa-users"></i> Guests</label>
-            <select id="searchGuests">
-              <option value="1">1 Traveler</option>
-              <option value="2" selected>2 Travelers</option>
-              <option value="4">4 Travelers</option>
-              <option value="5+">5+ (Group)</option>
-            </select>
-          </div>
-          
-          <button type="submit" class="btn btn-search" aria-label="Search trips">
+          <button type="button" class="btn btn-search" id="heroSearchSubmit">
             <i class="fa-solid fa-magnifying-glass"></i> <span>Search</span>
           </button>
+          <div class="search-suggestions" id="searchSuggestions"></div>
         </form>
       </div>
     </div>
@@ -146,154 +121,154 @@
       </div>
       
       <div class="destinations-grid">
-        <!-- Card 1: Kyoto -->
+        <!-- Card 1: Spiti Valley -->
         <div class="dest-card scroll-reveal">
           <div class="dest-image-container">
-            <img src="assets/kyoto.png" alt="Kyoto, Japan" loading="lazy">
-            <span class="dest-badge">Cultured</span>
+            <img src="assets/spiti_valley.png" alt="Spiti Valley Expedition" loading="lazy">
+            <span class="dest-badge">Expedition</span>
           </div>
           <div class="dest-info">
             <div class="dest-header">
-              <h3>Kyoto, Japan</h3>
-              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.9</div>
-            </div>
-            <p class="dest-text">Sip private ceremony matcha, wander tranquil bamboo groves, and rest in centuries-old luxury Ryokans.</p>
-            <div class="dest-footer">
-              <span class="dest-price">From <strong>₹3,48,600</strong><small>/person</small></span>
-              <a href="#contact" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2: Santorini -->
-        <div class="dest-card scroll-reveal delay-100">
-          <div class="dest-image-container">
-            <img src="assets/santorini.png" alt="Santorini, Greece" loading="lazy">
-            <span class="dest-badge">Scenic</span>
-          </div>
-          <div class="dest-info">
-            <div class="dest-header">
-              <h3>Santorini, Greece</h3>
+              <h3>Spiti Valley Circuit</h3>
               <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.95</div>
             </div>
-            <p class="dest-text">Unpack in cliffside infinity pool suites overlooking the caldera and embark on private catamaran sunset cruises.</p>
+            <p class="dest-text">Explore Kaza, Key Monastery, World's Highest Post Office at Hikkim, Chicham Bridge, and Chandratal Lake.</p>
             <div class="dest-footer">
-              <span class="dest-price">From <strong>₹4,81,400</strong><small>/person</small></span>
-              <a href="#contact" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
+              <span class="dest-price">From <strong>₹12,999</strong><small>/person</small></span>
+              <a href="spiti-valley.html" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- Card 3: Amalfi -->
-        <div class="dest-card scroll-reveal delay-200">
-          <div class="dest-image-container">
-            <img src="assets/amalfi.png" alt="Amalfi Coast, Italy" loading="lazy">
-            <span class="dest-badge">Romantic</span>
-          </div>
-          <div class="dest-info">
-            <div class="dest-header">
-              <h3>Amalfi Coast, Italy</h3>
-              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.88</div>
-            </div>
-            <p class="dest-text">Cruise down coastal cliffs in a vintage Italian roadster and dine at exclusive cliffside lemon grove restaurants.</p>
-            <div class="dest-footer">
-              <span class="dest-price">From <strong>₹5,06,300</strong><small>/person</small></span>
-              <a href="#contact" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4: Swiss Alps -->
-        <div class="dest-card scroll-reveal delay-300">
-          <div class="dest-image-container">
-            <img src="assets/swiss_alps.png" alt="Zermatt, Switzerland" loading="lazy">
-            <span class="dest-badge">Adventure</span>
-          </div>
-          <div class="dest-info">
-            <div class="dest-header">
-              <h3>Swiss Alps, Switzerland</h3>
-              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.92</div>
-            </div>
-            <p class="dest-text">Ski direct-to-door at elite chalet resorts, and take a private helicopter flight surrounding the majestic Matterhorn.</p>
-            <div class="dest-footer">
-              <span class="dest-price">From <strong>₹6,22,500</strong><small>/person</small></span>
-              <a href="#contact" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5: Vietnam -->
-        <div class="dest-card scroll-reveal delay-300">
-          <div class="dest-image-container">
-            <img src="assets/vietnam.png" alt="Hanoi & Ha Long Bay, Vietnam" loading="lazy">
-            <span class="dest-badge">Scenic</span>
-          </div>
-          <div class="dest-info">
-            <div class="dest-header">
-              <h3>Hanoi & Ha Long Bay, Vietnam</h3>
-              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.9</div>
-            </div>
-            <p class="dest-text">Cruise emerald waters among limestone karsts aboard a private luxury junk, and savor street-food feasts led by local Hanoi culinary masters.</p>
-            <div class="dest-footer">
-              <span class="dest-price">From <strong>₹2,98,800</strong><small>/person</small></span>
-              <a href="#contact" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 6: Himachal -->
+        <!-- Card 2: Manali & Kasol -->
         <div class="dest-card scroll-reveal delay-100">
           <div class="dest-image-container">
-            <img src="assets/himachal.png" alt="Himachal Pradesh, India" loading="lazy">
-            <span class="dest-badge">Mountains</span>
+            <img src="assets/manali_kasol.png" alt="Manali & Kasol" loading="lazy">
+            <span class="dest-badge">Popular</span>
           </div>
           <div class="dest-info">
             <div class="dest-header">
-              <h3>Himachal Pradesh, India</h3>
-              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.87</div>
+              <h3>Manali & Kasol Escape</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.88</div>
             </div>
-            <p class="dest-text">Wake in a glass cabin above pine valleys, ride the toy train to Shimla, and sip private tea tastings in mist-wrapped Himalayan hamlets.</p>
+            <p class="dest-text">Hadimba Temple, Jogini Waterfall, Parvati Valley cafe hopping, and hot springs at Manikaran Sahib.</p>
             <div class="dest-footer">
-              <span class="dest-price">From <strong>₹1,99,200</strong><small>/person</small></span>
-              <a href="india.html" class="btn-text-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+              <span class="dest-price">From <strong>₹8,999</strong><small>/person</small></span>
+              <a href="manali-kasol.html" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- Card 7: Kerala -->
+        <!-- Card 3: McLeodganj & Triund -->
         <div class="dest-card scroll-reveal delay-200">
           <div class="dest-image-container">
-            <img src="assets/kerala.png" alt="Kerala, India" loading="lazy">
-            <span class="dest-badge">Serene</span>
+            <img src="assets/mcleodganj_triund.png" alt="McLeodganj & Triund Trek" loading="lazy">
+            <span class="dest-badge">Trekking</span>
           </div>
           <div class="dest-info">
             <div class="dest-header">
-              <h3>Kerala, India</h3>
-              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.91</div>
+              <h3>McLeodganj & Triund Trek</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.92</div>
             </div>
-            <p class="dest-text">Drift the backwaters aboard a private houseboat, unwind with Ayurvedic spa rituals, and dine on coastal feasts under coconut groves.</p>
+            <p class="dest-text">Dalai Lama Temple, Bhagsu Waterfall, Triund top camping with breathtaking Dhauladhar mountain sunrise.</p>
             <div class="dest-footer">
-              <span class="dest-price">From <strong>₹1,74,300</strong><small>/person</small></span>
-              <a href="india.html" class="btn-text-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+              <span class="dest-price">From <strong>₹6,999</strong><small>/person</small></span>
+              <a href="mcleodganj-triund.html" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- Card 8: Rajasthan -->
+        <!-- Card 4: Kedarnath & Chopta -->
         <div class="dest-card scroll-reveal delay-300">
           <div class="dest-image-container">
-            <img src="assets/rajasthan.png" alt="Rajasthan, India" loading="lazy">
-            <span class="dest-badge">Heritage</span>
+            <img src="assets/kedarnath_chopta.png" alt="Kedarnath & Chopta Circuit" loading="lazy">
+            <span class="dest-badge">Pilgrimage Trek</span>
           </div>
           <div class="dest-info">
             <div class="dest-header">
-              <h3>Rajasthan, India</h3>
+              <h3>Kedarnath & Chopta Circuit</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.96</div>
+            </div>
+            <p class="dest-text">Kedarnath Temple darshan, trek to Tungnath (highest Shiva temple), and serene camping at Deoriatal.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>₹18,499</strong><small>/person</small></span>
+              <a href="kedarnath-chopta.html" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Ladakh Expedition -->
+        <div class="dest-card scroll-reveal delay-300">
+          <div class="dest-image-container">
+            <img src="assets/ladakh_pangong.png" alt="Ladakh Leh & Nubra" loading="lazy">
+            <span class="dest-badge">High Altitude</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Leh Ladakh & Pangong</h3>
               <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.94</div>
             </div>
-            <p class="dest-text">Sleep in restored maharaja palaces, take a private sunset camel safari in the Thar desert, and tour kaleidoscopic bazaars with a royal historian.</p>
+            <p class="dest-text">Cross Khardung La Pass, Bactrian camel rides in Nubra Valley, Magnetic Hill, and Pangong Tso Lake camping.</p>
             <div class="dest-footer">
-              <span class="dest-price">From <strong>₹2,49,000</strong><small>/person</small></span>
-              <a href="india.html" class="btn-text-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+              <span class="dest-price">From <strong>₹14,999</strong><small>/person</small></span>
+              <a href="leh-ladakh.html" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Kashmir Paradise -->
+        <div class="dest-card scroll-reveal delay-100">
+          <div class="dest-image-container">
+            <img src="assets/kashmir_valley.png" alt="Kashmir Paradise Tour" loading="lazy">
+            <span class="dest-badge">Paradise</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Kashmir Valley Paradise</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.93</div>
+            </div>
+            <p class="dest-text">Shikara ride on Dal Lake, Gulmarg Gondola cable car ride, Betaab Valley, and Pahalgam pine forest stays.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>₹15,999</strong><small>/person</small></span>
+              <a href="kashmir-valley.html" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7: Manali to Jispa -->
+        <div class="dest-card scroll-reveal delay-200">
+          <div class="dest-image-container">
+            <img src="assets/jispa_expedition.png" alt="Manali to Jispa" loading="lazy">
+            <span class="dest-badge">Short Break</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Manali to Jispa Expedition</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.90</div>
+            </div>
+            <p class="dest-text">Solang Valley adventure, Atal Tunnel drive, Sissu Waterfall, Deepak Tal, and stargazing at Jispa camp.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>₹7,999</strong><small>/person</small></span>
+              <a href="manali-jispa.html" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8: Vietnam Tropical -->
+        <div class="dest-card scroll-reveal delay-300">
+          <div class="dest-image-container">
+            <img src="assets/vietnam.png" alt="Vietnam Discovery" loading="lazy">
+            <span class="dest-badge">International</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-header">
+              <h3>Vietnam Tropical Discovery</h3>
+              <div class="dest-rating"><i class="fa-solid fa-star"></i> 4.91</div>
+            </div>
+            <p class="dest-text">Ha Long Bay luxury cruise, Ba Na Hills Golden Hands Bridge, and Hoi An ancient town night market.</p>
+            <div class="dest-footer">
+              <span class="dest-price">From <strong>₹67,000</strong><small>/person</small></span>
+              <a href="vietnam-discovery.html" class="btn-text-link">Inquire <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -364,124 +339,7 @@
     </div>
   </section>
 
-  <!-- Interactive Travel Planner Section -->
-  <section class="planner-section" id="planner">
-    <div class="container">
-      <div class="section-header scroll-reveal">
-        <span class="subtitle">AI Itinerary Planner</span>
-        <h2 class="section-title">Design Your Custom <span class="text-gradient">Dream Escape</span></h2>
-        <p class="section-desc">Select your travel vibe, duration, and budget. Our smart planner will dynamically build an exclusive curated itinerary preview instantly.</p>
-      </div>
-      
-      <div class="planner-wrapper glass-panel scroll-reveal">
-        <!-- Left Column: Inputs -->
-        <div class="planner-inputs">
-          <h3 class="planner-sub-title">1. Your Preferences</h3>
-          
-          <div class="planner-field">
-            <label>Travel Vibe</label>
-            <div class="vibe-selectors">
-              <button class="vibe-btn active" data-vibe="adventure">
-                <i class="fa-solid fa-mountain-sun"></i> Adventure
-              </button>
-              <button class="vibe-btn" data-vibe="relax">
-                <i class="fa-solid fa-spa"></i> Relaxation
-              </button>
-              <button class="vibe-btn" data-vibe="culture">
-                <i class="fa-solid fa-landmark"></i> Cultural
-              </button>
-              <button class="vibe-btn" data-vibe="wellness">
-                <i class="fa-solid fa-leaf"></i> Wellness
-              </button>
-            </div>
-          </div>
-          
-          <div class="planner-flex-row">
-            <div class="planner-field">
-              <label for="planDuration">Duration</label>
-              <select id="planDuration" class="form-control">
-                <option value="3">3 Days (Weekend Escape)</option>
-                <option value="7" selected>7 Days (Standard Luxury)</option>
-                <option value="14">14 Days (Grand Expedition)</option>
-              </select>
-            </div>
-            
-            <div class="planner-field">
-              <label for="planDestination">Region</label>
-              <select id="planDestination" class="form-control">
-                <option value="kyoto">Kyoto, Japan</option>
-                <option value="santorini" selected>Santorini, Greece</option>
-                <option value="amalfi">Amalfi Coast, Italy</option>
-                <option value="alps">Swiss Alps</option>
-                <option value="vietnam">Hanoi & Ha Long Bay, Vietnam</option>
-                <option value="himachal">Himachal, India</option>
-                <option value="kerala">Kerala, India</option>
-                <option value="rajasthan">Rajasthan, India</option>
-              </select>
-            </div>
-          </div>
-          
-          <div class="planner-field">
-            <label>Luxury Tier</label>
-            <div class="luxury-selectors">
-              <label class="lux-option">
-                <input type="radio" name="luxTier" value="boutique" checked>
-                <div class="lux-box">
-                  <span class="lux-title">Premium Boutique</span>
-                  <span class="lux-desc">5-star boutique hotels, semi-private tours</span>
-                </div>
-              </label>
-              <label class="lux-option">
-                <input type="radio" name="luxTier" value="ultra">
-                <div class="lux-box">
-                  <span class="lux-title">Ultra Luxe</span>
-                  <span class="lux-desc">Private villas, helicopters, personal hosts</span>
-                </div>
-              </label>
-            </div>
-          </div>
-          
-          <button id="generateItinerary" class="btn btn-primary btn-block">
-            <span>Generate Itinerary Preview</span>
-            <i class="fa-solid fa-sparkles"></i>
-          </button>
-        </div>
-        
-        <!-- Right Column: Live Output -->
-        <div class="planner-output" id="plannerOutput">
-          <div class="output-placeholder">
-            <i class="fa-solid fa-compass-drafting animate-bounce"></i>
-            <h4>Your Bespoke Itinerary Awaits</h4>
-            <p>Customize your selections on the left and tap 'Generate Itinerary Preview' to view a hand-crafted schedule, curated stay locations, and pricing estimate.</p>
-          </div>
-          
-          <!-- This will be populated by JS -->
-          <div class="output-content hidden" id="itineraryContent">
-            <!-- Header -->
-            <div class="itinerary-header">
-              <div class="itinerary-badge" id="itineraryBadge">ADVENTURE</div>
-              <h4 id="itineraryTitle">7-Day Greek Odyssey</h4>
-              <p class="itinerary-meta"><span id="itineraryHotel"><i class="fa-solid fa-hotel"></i> Mystique Resort</span> | <span id="itineraryPax"><i class="fa-solid fa-user-shield"></i> Personal Concierge Assigned</span></p>
-            </div>
-            
-            <!-- Timeline items -->
-            <div class="itinerary-timeline" id="itineraryTimeline">
-              <!-- Dynamically populated -->
-            </div>
-            
-            <!-- Summary Info -->
-            <div class="itinerary-summary">
-              <div class="summary-cost">
-                <span>Estimated Investment:</span>
-                <span class="price-val" id="itineraryCost">₹6,97,200</span>
-              </div>
-              <a href="#contact" class="btn btn-outline btn-sm" id="bookItineraryBtn">Request Booking Inquiry</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- Curated Packages / Experiences Section -->
   <section class="packages-section" id="packages">
@@ -490,202 +348,209 @@
         <span class="subtitle">Bespoke Journeys</span>
         <h2 class="section-title">Signature <span class="text-gradient">Travel Collections</span></h2>
         <p class="section-desc">Fully immersive luxury packages featuring private transport, accommodations, and curated activities designed around local themes.</p>
-      </div>
-      
-      <div class="packages-grid">
-        <!-- Package 1 -->
+          <div class="packages-grid">
+        <!-- Package 1: Spiti Valley -->
         <div class="package-card scroll-reveal">
           <div class="pkg-image-wrapper">
-            <img src="assets/kyoto.png" alt="Zen Gardens Kyoto" loading="lazy">
-            <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 8 Days</div>
+            <img src="assets/spiti_valley.png" alt="Spiti Valley Expedition" loading="lazy">
+            <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 7 Days / 6 Nights</div>
           </div>
           <div class="pkg-body">
-            <span class="pkg-category">Cultural Discovery</span>
-            <h3>Zen Gardens & Sacred Pagodas</h3>
-            <p>Discover the spiritual heart of Japan. Includes a private zen tea master ceremony, luxury ryokan lodge, geisha-guided historic tours, and bullet-train access.</p>
+            <span class="pkg-category">Expedition Circuit</span>
+            <h3>Spiti Valley Complete Circuit</h3>
+            <p>Unforgettable Himalayan circuit across Kaza, Key Monastery, Hikkim highest post office, Chicham Bridge, and stargazing at Chandratal Lake.</p>
             <div class="pkg-perks">
-              <span><i class="fa-solid fa-check"></i> 5★ Ryokan</span>
-              <span><i class="fa-solid fa-check"></i> Private Guide</span>
-              <span><i class="fa-solid fa-check"></i> Tea Master</span>
+              <span><i class="fa-solid fa-check"></i> Shared SUV / Tempo</span>
+              <span><i class="fa-solid fa-check"></i> Stays & Meals Included</span>
+              <span><i class="fa-solid fa-check"></i> Trip Captain</span>
             </div>
             <div class="pkg-footer">
               <div class="pkg-price">
-                <span>Total Package:</span>
-                 <strong>₹3,73,500</strong> <small>/person</small>
+                <span>Starting Price:</span>
+                 <strong>₹12,999</strong> <small>/person</small>
               </div>
-              <a href="#contact" class="btn btn-outline btn-sm">Details</a>
+              <a href="spiti-valley.html" class="btn btn-outline btn-sm">Details</a>
             </div>
           </div>
         </div>
 
-        <!-- Package 2 -->
+        <!-- Package 2: Kedarnath & Chopta -->
         <div class="package-card scroll-reveal delay-100">
           <div class="pkg-image-wrapper">
-            <img src="assets/santorini.png" alt="Aegean Horizon Santorini" loading="lazy">
-            <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 6 Days</div>
+            <img src="assets/kedarnath_chopta.png" alt="Kedarnath & Chopta Trek" loading="lazy">
+            <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 6 Days / 5 Nights</div>
           </div>
           <div class="pkg-body">
-            <span class="pkg-category">Romantic Escape</span>
-            <h3>Aegean Horizon Caldera Sailing</h3>
-            <p>Relax in ultimate cliffside boutique hotels. Includes sunset yacht sails, private caldera wine tastings, personal volcanic hiking guides, and fine dining bookings.</p>
+            <span class="pkg-category">Pilgrimage & Trekking</span>
+            <h3>Kedarnath & Chopta Tungnath Circuit</h3>
+            <p>Divine darshan at Kedarnath Dham, trekking to Tungnath (World's highest Shiva temple), Deoriatal lake views, and Rishikesh evening aarti.</p>
             <div class="pkg-perks">
-              <span><i class="fa-solid fa-check"></i> Infinity Pool Villa</span>
-              <span><i class="fa-solid fa-check"></i> Private Yacht</span>
-              <span><i class="fa-solid fa-check"></i> Sommelier</span>
+              <span><i class="fa-solid fa-check"></i> VIP Darshan Assistance</span>
+              <span><i class="fa-solid fa-check"></i> Camp & Hotel Stay</span>
+              <span><i class="fa-solid fa-check"></i> Certified Guide</span>
             </div>
             <div class="pkg-footer">
               <div class="pkg-price">
-                <span>Total Package:</span>
-                 <strong>₹4,89,700</strong> <small>/person</small>
+                <span>Starting Price:</span>
+                 <strong>₹18,499</strong> <small>/person</small>
               </div>
-              <a href="#contact" class="btn btn-outline btn-sm">Details</a>
+              <a href="kedarnath-chopta.html" class="btn btn-outline btn-sm">Details</a>
             </div>
           </div>
         </div>
 
-        <!-- Package 3 -->
+        <!-- Package 3: Leh Ladakh Expedition -->
         <div class="package-card scroll-reveal delay-200">
           <div class="pkg-image-wrapper">
-            <img src="assets/swiss_alps.png" alt="Swiss Peak Luxury" loading="lazy">
-            <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 9 Days</div>
+            <img src="assets/ladakh_pangong.png" alt="Leh Ladakh & Pangong" loading="lazy">
+            <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 6 Days / 5 Nights</div>
           </div>
           <div class="pkg-body">
-            <span class="pkg-category">High Adventure</span>
-            <h3>Swiss Peak Helicopter & Skiing</h3>
-            <p>Soar high above snow-covered valleys. Experience private ski passes, helicopter glacier fly-overs, mountain hot springs, and luxury lodge fireplace chalets.</p>
+            <span class="pkg-category">High Altitude Adventure</span>
+            <h3>Leh Ladakh, Nubra & Pangong Tso</h3>
+            <p>Conquer Khardung La pass, double-hump camel ride in Nubra sand dunes, Magnetic Hill, and overnight lakeside stay at turquoise Pangong Tso.</p>
             <div class="pkg-perks">
-              <span><i class="fa-solid fa-check"></i> Ski-in Chalet</span>
-              <span><i class="fa-solid fa-check"></i> Heli Tour</span>
-              <span><i class="fa-solid fa-check"></i> Thermal Spas</span>
+              <span><i class="fa-solid fa-check"></i> Oxygen Cylinder Onboard</span>
+              <span><i class="fa-solid fa-check"></i> Inner Line Permits</span>
+              <span><i class="fa-solid fa-check"></i> Bike / SUV Option</span>
             </div>
             <div class="pkg-footer">
               <div class="pkg-price">
-                <span>Total Package:</span>
-                 <strong>₹6,80,600</strong> <small>/person</small>
+                <span>Starting Price:</span>
+                 <strong>₹14,999</strong> <small>/person</small>
               </div>
-              <a href="#contact" class="btn btn-outline btn-sm">Details</a>
+              <a href="leh-ladakh.html" class="btn btn-outline btn-sm">Details</a>
             </div>
           </div>
         </div>
 
-        <!-- Package 4 -->
+        <!-- Package 4: Kashmir Paradise -->
         <div class="package-card scroll-reveal delay-300">
           <div class="pkg-image-wrapper">
-            <img src="assets/vietnam.png" alt="Ha Long Bay Cruise Vietnam" loading="lazy">
-            <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 10 Days</div>
+            <img src="assets/kashmir_valley.png" alt="Kashmir Paradise Tour" loading="lazy">
+            <div class="pkg-duration"><i class="fa-regular fa-clock"></i> 5 Days / 4 Nights</div>
           </div>
           <div class="pkg-body">
-            <span class="pkg-category">Coastal Discovery</span>
-            <h3>Emerald Karsts & Old Quarter</h3>
-            <p>Drift through misty limestone bays on a private luxury cruise. Includes Hanoi heritage walks, hidden cove kayaking, and a private Vietnamese fusion dining night.</p>
+            <span class="pkg-category">Scenic Paradise</span>
+            <h3>Kashmir Valley Paradise Escape</h3>
+            <p>Serene Dal Lake houseboat stay with Shikara ride, Gulmarg snow sports with Gondola cable car, and Pahalgam pine forest valley walks.</p>
             <div class="pkg-perks">
-              <span><i class="fa-solid fa-check"></i> Luxury Cruise</span>
-              <span><i class="fa-solid fa-check"></i> Private Guide</span>
-              <span><i class="fa-solid fa-check"></i> Culinary Tour</span>
+              <span><i class="fa-solid fa-check"></i> Luxury Houseboat Stay</span>
+              <span><i class="fa-solid fa-check"></i> Shikara Ride Included</span>
+              <span><i class="fa-solid fa-check"></i> Daily Breakfast & Dinner</span>
             </div>
             <div class="pkg-footer">
               <div class="pkg-price">
-                <span>Total Package:</span>
-                 <strong>₹3,15,400</strong> <small>/person</small>
+                <span>Starting Price:</span>
+                 <strong>₹15,999</strong> <small>/person</small>
               </div>
-              <a href="#contact" class="btn btn-outline btn-sm">Details</a>
+              <a href="kashmir-valley.html" class="btn btn-outline btn-sm">Details</a>
             </div>
           </div>
         </div>
+      </div>        </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section class="testimonials-section" id="testimonials">
+  <!-- Sharing & Trip Plans Section -->
+  <section class="pricing-plans-section" id="plans-pricing">
     <div class="container">
       <div class="section-header scroll-reveal">
-        <span class="subtitle">Guest Journals</span>
-        <h2 class="section-title">What Our Travelers <span class="text-gradient">Say About Us</span></h2>
-        <p class="section-desc">True travel diaries from discerning guests who explored the globe under the bespoke care of Joylo curators.</p>
+        <span class="subtitle">Flexible Sharing & Tiers</span>
+        <h2 class="section-title">Sharing & <span class="text-gradient">Trip Plans</span></h2>
+        <p class="section-desc">Flexible options per traveler based on room occupancy. Pick your preferred plan with zero hidden costs.</p>
       </div>
-      
-      <div class="testimonials-slider-container scroll-reveal">
-        <div class="testimonials-track" id="testimonialsTrack">
-          <!-- Slide 1 -->
-          <div class="testimonial-slide">
-            <div class="test-quote">"Our honeymoon with Joylo was perfect. The concierge booked us front-row tables at a fully booked cliffside restaurant in Positano within 15 minutes of us asking. Absolutely stellar!"</div>
-            <div class="test-user">
-              <div class="test-avatar">
-                <i class="fa-solid fa-circle-user"></i>
-              </div>
-              <div class="test-user-info">
-                <strong>Eleanor & David Vance</strong>
-                <span>Amalfi Coast Journey</span>
-              </div>
-            </div>
-            <div class="test-rating-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-          </div>
-          
-          <!-- Slide 2 -->
-          <div class="testimonial-slide">
-            <div class="test-quote">"Kyoto was magic. The local tour curator arranged a private tea session at a Buddhist temple closed to the public. It was the most peaceful experience of my entire life. Highly recommend."</div>
-            <div class="test-user">
-              <div class="test-avatar">
-                <i class="fa-solid fa-circle-user"></i>
-              </div>
-              <div class="test-user-info">
-                <strong>Dr. Hiroshi Tanaka</strong>
-                <span>Kyoto Sanctuary Journey</span>
-              </div>
-            </div>
-            <div class="test-rating-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-          </div>
 
-          <!-- Slide 3 -->
-          <div class="testimonial-slide">
-            <div class="test-quote">"We didn't have to lift a finger in Switzerland. When a train got delayed, our concierge re-booked private towncars immediately and sent custom vouchers to our phones. Zero stress!"</div>
-            <div class="test-user">
-              <div class="test-avatar">
-                <i class="fa-solid fa-circle-user"></i>
-              </div>
-              <div class="test-user-info">
-                <strong>Clarissa & Mark Thorne</strong>
-                <span>Swiss Alpine Adventure</span>
-              </div>
-            </div>
-            <div class="test-rating-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
+      <!-- Sharing Plan Cards Tiers -->
+      <div class="pricing-plans-grid">
+        <!-- Quad Sharing -->
+        <div class="plan-card scroll-reveal">
+          <div class="plan-header">
+            <span class="plan-badge">Budget Best Value</span>
+            <h3>Quad Sharing Plan</h3>
+            <p class="plan-desc">4 People sharing room & vehicle. Perfect for budget travelers and large friend groups.</p>
           </div>
-
-          <!-- Slide 4 -->
-          <div class="testimonial-slide">
-            <div class="test-quote">"Ha Long Bay took our breath away. Waking up on a private luxury junk surrounded by mist and limestone peaks was surreal. Joylo's Hanoi food tour was the best night of our trip."</div>
-            <div class="test-user">
-              <div class="test-avatar">
-                <i class="fa-solid fa-circle-user"></i>
-              </div>
-              <div class="test-user-info">
-                <strong>Sophie & Liam Carter</strong>
-                <span>Vietnam Coastal Discovery</span>
-              </div>
-            </div>
-            <div class="test-rating-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-check"></i> 4-Person Room Occupancy</li>
+              <li><i class="fa-solid fa-check"></i> Handpicked Stays & Camps</li>
+              <li><i class="fa-solid fa-check"></i> Breakfast & Dinner Included</li>
+              <li><i class="fa-solid fa-check"></i> Experienced Trip Captain</li>
+              <li><i class="fa-solid fa-check"></i> Shared Tempo / SUV Transport</li>
+              <li><i class="fa-solid fa-check"></i> Inner Line Permits Included</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="contact.html?plan=Quad" class="btn btn-outline btn-block">Choose Quad Plan</a>
           </div>
         </div>
-        
-        <!-- Slider Controls -->
-        <div class="slider-controls">
-          <button class="slider-btn prev-btn" id="prevBtn" aria-label="Previous review"><i class="fa-solid fa-chevron-left"></i></button>
-          <div class="slider-dots" id="sliderDots">
-            <span class="dot active" data-index="0"></span>
-            <span class="dot" data-index="1"></span>
-            <span class="dot" data-index="2"></span>
-            <span class="dot" data-index="3"></span>
+
+        <!-- Triple Sharing (Popular) -->
+        <div class="plan-card popular-plan scroll-reveal delay-100">
+          <div class="popular-tag">Most Popular</div>
+          <div class="plan-header">
+            <span class="plan-badge">Balanced & Fun</span>
+            <h3>Triple Sharing Plan</h3>
+            <p class="plan-desc">3 People sharing room. Ideal balance of affordability, comfort, and group vibes.</p>
           </div>
-          <button class="slider-btn next-btn" id="nextBtn" aria-label="Next review"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-check"></i> 3-Person Room Occupancy</li>
+              <li><i class="fa-solid fa-check"></i> Handpicked 3★/4★ Stays</li>
+              <li><i class="fa-solid fa-check"></i> Breakfast & Dinner Included</li>
+              <li><i class="fa-solid fa-check"></i> Certified Tour Captain</li>
+              <li><i class="fa-solid fa-check"></i> Comfortable Group Transport</li>
+              <li><i class="fa-solid fa-check"></i> All Permits & Toll Charges</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="contact.html?plan=Triple" class="btn btn-primary btn-block">Choose Triple Plan</a>
+          </div>
+        </div>
+
+        <!-- Double Sharing -->
+        <div class="plan-card scroll-reveal delay-200">
+          <div class="plan-header">
+            <span class="plan-badge">Duo & Couples</span>
+            <h3>Double Sharing Plan</h3>
+            <p class="plan-desc">Private room for 2 guests. Designed for couples, duos, or travelers seeking privacy.</p>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-check"></i> Private Double Room</li>
+              <li><i class="fa-solid fa-check"></i> Premium Boutique Stays</li>
+              <li><i class="fa-solid fa-check"></i> Breakfast & Dinner Included</li>
+              <li><i class="fa-solid fa-check"></i> Trip Captain & Guide</li>
+              <li><i class="fa-solid fa-check"></i> Shared or Private Transport</li>
+              <li><i class="fa-solid fa-check"></i> 24/7 Concierge Support</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="contact.html?plan=Double" class="btn btn-outline btn-block">Choose Double Plan</a>
+          </div>
+        </div>
+
+        <!-- Customized / Corporate Plan -->
+        <div class="plan-card scroll-reveal delay-300">
+          <div class="plan-header">
+            <span class="plan-badge">Bespoke & Tailored</span>
+            <h3>Custom / VIP Plan</h3>
+            <p class="plan-desc">Fully customized itinerary, private vehicle, dates of your choice, and luxury upgrades.</p>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li><i class="fa-solid fa-check"></i> 100% Private Cab & Transfers</li>
+              <li><i class="fa-solid fa-check"></i> Luxury 4★/5★ Hotel Upgrades</li>
+              <li><i class="fa-solid fa-check"></i> Flexible Travel Dates</li>
+              <li><i class="fa-solid fa-check"></i> Customized Activities & Dining</li>
+              <li><i class="fa-solid fa-check"></i> Dedicated Travel Manager</li>
+              <li><i class="fa-solid fa-check"></i> Flight & Visa Add-ons</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="contact.html?plan=Custom" class="btn btn-outline btn-block">Request Custom Quote</a>
+          </div>
         </div>
       </div>
     </div>
@@ -751,15 +616,7 @@
         <div class="contact-info-panel scroll-reveal delay-200">
           <div class="contact-brand">
             <div class="logo-container">
-              <svg class="logo-icon-lg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <rect x="10" y="10" width="180" height="180" rx="45" ry="45" fill="#135f75"/>
-                <path d="M 45 145 C 50 85, 105 50, 145 75" fill="none" stroke="#ebd2a3" stroke-width="16" stroke-linecap="round"/>
-                <circle cx="145" cy="75" r="14" fill="#ebd2a3" />
-              </svg>
-              <div class="logo-text">
-                <span class="logo-brand-lg">joylo</span>
-                <span class="logo-slogan-lg">TRAVEL WELL</span>
-              </div>
+              <a href="index.html" class="logo-link"><img src="assets/logo.png" alt="Joylo Tribe" class="logo-img-footer"></a>
             </div>
           </div>
           
@@ -770,23 +627,10 @@
               <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
               <div class="info-text">
                 <span>Email Us Directly</span>
-                <a href="mailto:concierge@joylo.com">concierge@joylo.com</a>
+                <a href="mailto:info@joylotribe.in">info@joylotribe.in</a>
               </div>
             </div>
-            <div class="info-block">
-              <div class="info-icon"><i class="fa-solid fa-phone-volume"></i></div>
-              <div class="info-text">
-                <span>Call Private Line</span>
-                <a href="tel:+18005559560">+1 (800) 555-JOYLO</a>
-              </div>
-            </div>
-            <div class="info-block">
-              <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
-              <div class="info-text">
-                <span>Design Studios</span>
-                <p>742 Beverly Blvd, Los Angeles, CA 90210</p>
-              </div>
-            </div>
+            
           </div>
           
           <!-- Newsletter Panel -->
@@ -808,15 +652,7 @@
     <div class="container footer-container">
       <div class="footer-col brand-col">
         <div class="logo-container">
-          <svg class="logo-icon-sm" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="10" width="180" height="180" rx="45" ry="45" fill="#135f75"/>
-            <path d="M 45 145 C 50 85, 105 50, 145 75" fill="none" stroke="#ebd2a3" stroke-width="16" stroke-linecap="round"/>
-            <circle cx="145" cy="75" r="14" fill="#ebd2a3" />
-          </svg>
-          <div class="logo-text">
-            <span class="logo-brand-sm">joylo</span>
-            <span class="logo-slogan-sm">TRAVEL WELL</span>
-          </div>
+          <a href="index.html" class="logo-link"><img src="assets/logo.png" alt="Joylo Tribe" class="logo-img-footer"></a>
         </div>
         <p>Bespoke luxury curators designing premium travel experiences that inspire, relax, and reconnect.</p>
        
@@ -841,7 +677,6 @@
           <li><a href="flight-booking.html">Flight Booking</a></li>
           <li><a href="hotel-booking.html">Hotel Booking</a></li>
           <li><a href="conferences-events.html">Conferences & Events</a></li>
-          <li><a href="#planner">Itinerary Planner</a></li>
           <li><a href="contact.html">Request a Quote</a></li>
         </ul>
       </div>
@@ -875,6 +710,6 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- Custom JS -->
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=1.0.2"></script>
 </body>
 </html>

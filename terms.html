@@ -15,31 +15,24 @@
 <body>
   <header class="main-header">
     <div class="container header-container">
-      <a href="index.html" class="logo-link">
-        <div class="logo-container">
-          <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="10" width="180" height="180" rx="45" ry="45" fill="#135f75"/>
-            <path d="M 45 145 C 50 85, 105 50, 145 75" fill="none" stroke="#ebd2a3" stroke-width="16" stroke-linecap="round"/>
-            <circle cx="145" cy="75" r="14" fill="#ebd2a3" />
-          </svg>
-          <div class="logo-text">
-            <span class="logo-brand">joylo</span>
-            <span class="logo-slogan">TRAVEL WELL</span>
-          </div>
-        </div>
-      </a>
+      <a href="index.html" class="logo-link"><div class="logo-container"><img src="assets/logo.png" alt="Joylo Tribe" class="logo-img"></div></a>
 
       <nav class="nav-menu">
         <a href="index.html" class="nav-item">Home</a>
         <a href="about.html" class="nav-item">About Us</a>
         <a href="destinations.html" class="nav-item">Destinations</a>
         <a href="group-trips.html" class="nav-item">Group Trips</a>
-        <a href="corporate-travel.html" class="nav-item">Corporate Travel</a>
-        <a href="conferences-events.html" class="nav-item">Conferences & Events</a>
-        <a href="visa-assistance.html" class="nav-item">Visa Assistance</a>
-        <a href="flight-booking.html" class="nav-item">Flight Booking</a>
-        <a href="hotel-booking.html" class="nav-item">Hotel Booking</a>
-        <a href="contact.html" class="nav-item">Contact Us</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-item nav-dropdown-toggle">Services <i class="fa-solid fa-chevron-down"></i></a>
+          <div class="nav-dropdown-menu">
+            <a href="corporate-travel.html" class="nav-dropdown-item">Corporate Travel</a>
+            <a href="conferences-events.html" class="nav-dropdown-item">Conferences & Events</a>
+            <a href="visa-assistance.html" class="nav-dropdown-item">Visa Assistance</a>
+            <a href="flight-booking.html" class="nav-dropdown-item">Flight Booking</a>
+            <a href="hotel-booking.html" class="nav-dropdown-item">Hotel Booking</a>
+          </div>
+        </div>
+        <a href="contact.html" class="nav-item">Contact</a>
       </nav>
 
       <div class="header-actions">
@@ -69,7 +62,7 @@
     </nav>
   </div>
 
-  <section class="service-hero" style="background-image:url('../assets/hero_bg.png');">
+  <section class="service-hero" style="background-image:url('assets/hero_bg.png');">
     <div class="page-hero-overlay"></div>
     <div class="container page-hero-container">
       <div class="readcrumbs">
@@ -113,15 +106,7 @@
     <div class="container footer-container">
       <div class="footer-col brand-col">
         <div class="logo-container">
-          <svg class="logo-icon-sm" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="10" width="180" height="180" rx="45" ry="45" fill="#135f75"/>
-            <path d="M 45 145 C 50 85, 105 50, 145 75" fill="none" stroke="#ebd2a3" stroke-width="16" stroke-linecap="round"/>
-            <circle cx="145" cy="75" r="14" fill="#ebd2a3" />
-          </svg>
-          <div class="logo-text">
-            <span class="logo-brand-sm">joylo</span>
-            <span class="logo-slogan-sm">TRAVEL WELL</span>
-          </div>
+          <a href="index.html" class="logo-link"><img src="assets/logo.png" alt="Joylo Tribe" class="logo-img-footer"></a>
         </div>
         <p>Bespoke luxury curators designing premium travel experiences that inspire, relax, and reconnect.</p>
         
