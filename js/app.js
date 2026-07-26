@@ -4,6 +4,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const API_BASE_URL = 'http://localhost:5000/api';
+
   /* ----------------------------------------------------
      1. Sticky Header Scroll Effect
      ---------------------------------------------------- */
@@ -58,9 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ----------------------------------------------------
      3. Toast Notification System
      ---------------------------------------------------- */
-  const toastContainer = document.getElementById('toastContainer');
-
   function showToast(message, type = 'success') {
+    let container = document.getElementById('toastContainer');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'toastContainer';
+      container.className = 'toast-container';
+      document.body.appendChild(container);
+    }
+
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
     
@@ -72,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     toast.innerHTML = `${icon} <span>${message}</span>`;
-    toastContainer.appendChild(toast);
+    container.appendChild(toast);
     
     // Trigger animation frame for CSS slide-in
     setTimeout(() => {
@@ -341,37 +349,212 @@ document.addEventListener('DOMContentLoaded', () => {
   // Booking inquiry form
   const bookingForm = document.getElementById('bookingInquiryForm');
   if (bookingForm) {
-    bookingForm.addEventListener('submit', (e) => {
+    bookingForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = document.getElementById('contactName').value;
-      const destSelect = document.getElementById('contactDestination');
-      const destName = destSelect.options[destSelect.selectedIndex].text;
       
-      showToast(`Thank you, ${name}! Our specialized curator for ${destName} will review your parameters and email you within 24 hours.`, 'success');
-      bookingForm.reset();
+      const submitBtn = bookingForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit Inquiry';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Submitting... <i class="fa-solid fa-spinner fa-spin"></i>';
+      }
+
+      try {
+        const name = document.getElementById('contactName').value;
+        const email = document.getElementById('contactEmail').value;
+        const destSelect = document.getElementById('contactDestination');
+        const destination = destSelect.options[destSelect.selectedIndex].text;
+        const durationSelect = document.getElementById('contactDuration');
+        const duration = durationSelect.options[durationSelect.selectedIndex].text;
+        const message = document.getElementById('contactMessage').value;
+
+        const payload = {
+          name,
+          email,
+          destination,
+          duration,
+          message,
+          formType: 'inquiry'
+        };
+
+        const response = await fetch(`${API_BASE_URL}/inquiries`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          showToast(`Thank you, ${name}! Our specialized curator for ${destination} will review your parameters and email you within 24 hours.`, 'success');
+          bookingForm.reset();
+        } else {
+          showToast(data.error || 'Failed to submit inquiry.', 'error');
+        }
+      } catch (error) {
+        console.error('Error submitting inquiry:', error);
+        showToast('Connection to backend failed. Please try again.', 'error');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+      }
     });
   }
 
   // Newsletter form
   const newsForm = document.getElementById('newsletterForm');
   if (newsForm) {
-    newsForm.addEventListener('submit', (e) => {
+    newsForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const email = document.getElementById('newsletterEmail').value;
-      showToast(`Successfully subscribed ${email} to the Joylo Bespoke Travel Dispatch. Welcome!`, 'success');
-      newsForm.reset();
+      
+      const submitBtn = newsForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Subscribe';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+      }
+
+      try {
+        const email = document.getElementById('newsletterEmail').value;
+
+        const response = await fetch(`${API_BASE_URL}/newsletter`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          showToast(`Successfully subscribed ${email} to the Joylo Bespoke Travel Dispatch. Welcome!`, 'success');
+          newsForm.reset();
+        } else if (response.status === 409) {
+          showToast(data.message || 'Already subscribed!', 'info');
+        } else {
+          showToast(data.error || 'Failed to subscribe.', 'error');
+        }
+      } catch (error) {
+        console.error('Error subscribing:', error);
+        showToast('Connection to backend failed. Please try again.', 'error');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+      }
     });
   }
 
   // Request a Quote form (service pages)
   const quoteForm = document.getElementById('quoteForm');
   if (quoteForm) {
-    quoteForm.addEventListener('submit', (e) => {
+    quoteForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = (document.getElementById('qName') || {}).value || 'there';
-      const service = (document.getElementById('qService') || {}).value || 'your trip';
-      showToast(`Thank you, ${name}! Our curator for ${service} will reach out within 24 hours.`, 'success');
-      quoteForm.reset();
+      
+      const submitBtn = quoteForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Send Request';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
+      }
+
+      try {
+        const name = (document.getElementById('qName') || {}).value || 'there';
+        const email = (document.getElementById('qEmail') || {}).value || '';
+        const serviceSelect = document.getElementById('qService');
+        const service = serviceSelect ? serviceSelect.value : 'your trip';
+        const message = (document.getElementById('qDetails') || {}).value || '';
+
+        const payload = {
+          name,
+          email,
+          service,
+          message,
+          formType: 'quote'
+        };
+
+        const response = await fetch(`${API_BASE_URL}/inquiries`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          showToast(`Thank you, ${name}! Our curator for ${service} will reach out within 24 hours.`, 'success');
+          quoteForm.reset();
+        } else {
+          showToast(data.error || 'Failed to submit quote request.', 'error');
+        }
+      } catch (error) {
+        console.error('Error submitting quote:', error);
+        showToast('Connection to backend failed. Please try again.', 'error');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+      }
+    });
+  }
+
+  // Centralized Trip Booking Form (destination pages)
+  const tripBookingForm = document.getElementById('tripBookingForm');
+  if (tripBookingForm) {
+    tripBookingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const submitBtn = tripBookingForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit Inquiry Now';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Submitting... <i class="fa-solid fa-spinner fa-spin"></i>';
+      }
+
+      try {
+        const tripName = tripBookingForm.querySelector('input[name="tripName"]')?.value || 'Unknown Trip';
+        const fullName = tripBookingForm.querySelector('input[placeholder="Your name"]')?.value || '';
+        const phone = tripBookingForm.querySelector('input[placeholder="WhatsApp / Phone"]')?.value || '';
+        const email = tripBookingForm.querySelector('input[placeholder="you@email.com"]')?.value || '';
+        const sharingPreference = tripBookingForm.querySelector('select')?.value || '';
+        const travelDate = tripBookingForm.querySelector('input[type="date"]')?.value || '';
+
+        const payload = { tripName, fullName, phone, email, sharingPreference, travelDate };
+
+        const response = await fetch(`${API_BASE_URL}/bookings`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          showToast(`Thank you, ${fullName}! Your inquiry for ${tripName} has been submitted successfully to MongoDB.`, 'success');
+          tripBookingForm.reset();
+        } else {
+          showToast(data.error || 'Failed to submit booking inquiry.', 'error');
+        }
+      } catch (error) {
+        console.error('Error submitting booking:', error);
+        showToast('Connection to backend failed. Please try again.', 'error');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+      }
     });
   }
 
